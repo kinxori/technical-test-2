@@ -31,39 +31,42 @@ export default function UserFilterComponent() {
   // console.log(filteredData);
 
   return (
-    <article className="w-[auto] h-[500px] rounded-md flex flex-col justify-start items-center border-white border-[2px] bg-white  ">
-      <div className="bg-purple-600 w-[100%] h-[50px] flex justify-center items-center  ">
+    <article className="w-[auto] h-[500px] rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
+      <div className="bg-purple-600  py-3 flex justify-center items-center  ">
         <h1 className="text-[24px] font-bold ">Favorite Contacts</h1>
       </div>
-      <div className="w-[95%] my-3 rounded-md border-gray-400 border-[1px] overflow-y-auto  ">
-        {filteredData.map((item) => (
-          <div
-            key={item.phoneNumber + item.called}
-            className="flex w-[100%] h-[50px] my-3 items-center justify-around bg-white text-black  "
-          >
-            <div className="flex flex-col w-[20%] ">
-              <div className="flex justify-center  ">
+      <div className="border-box p-5 overflow-auto">
+        <div className="flex items-center justify-around bg-white text-black/50  ">
+          <i>Name</i>
+          <i># of Calls</i>
+          <i>MM/DD/YYYY</i>
+        </div>
+        <div className="rounded-md w-full border-gray-400 border-[1px]  ">
+          {filteredData.map((item) => (
+            <div
+              key={item.phoneNumber + item.called}
+              className="flex my-3 items-center justify-between bg-white text-black  "
+            >
+              <div className="flex flex-col justify-center items-center w-[40%] ">
                 <h3>{item.firstName}</h3>
+                <h3 className="font-bold ">{item.lastName}</h3>
               </div>
-              <div className="flex justify-center font-bold ">
-                <h3>{item.lastName}</h3>
+              <div className="flex justify-center text-[14px] w-[10%] ">
+                <i>{item.numberOfCalls}</i>
+              </div>
+              <div className="flex gap-3 justify-center  w-[50%] ">
+                <h3>
+                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+                </h3>
+                <span>&#10148;</span>
               </div>
             </div>
-            <div className="flex justify-center w-[20%] text-[14px] ">
-              <i>Calls {item.numberOfCalls}</i>
-            </div>
-            <div className="flex justify-end pr-[10%] gap-5  w-[40%] ">
-              <h3>
-                {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "numeric",
-                  day: "numeric",
-                })}
-              </h3>
-              <span>&#10148;</span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </article>
   );
