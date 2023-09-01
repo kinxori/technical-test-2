@@ -33,40 +33,38 @@ export default function UserFilterComponent() {
   return (
     <article className="w-[auto] h-[500px] rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
       <div className="bg-purple-600  py-3 flex justify-center items-center  ">
-        <h1 className="text-[24px] font-bold ">Favorite Contacts</h1>
+        <h1 className="text-[24px] text-white font-bold ">Favorite Contacts</h1>
       </div>
-      <div className="border-box p-5 overflow-auto">
-        <div className="flex items-center justify-around bg-white text-black/50  ">
-          <i>Name</i>
-          <i># of Calls</i>
-          <i>MM/DD/YYYY</i>
-        </div>
-        <div className="rounded-md w-full border-gray-400 border-[1px]  ">
+      <div className="border-box p-5 overflow-auto grid grid-flow-row">
+        <table className="w-full border-gray-400 border-[1px] text-black ">
+          <tr className="text-center bg-black/20">
+            <th className=" border-gray-400 border-[1px]">
+              <i>Name</i>
+            </th>
+            <th className=" border-gray-400 border-[1px]">
+              <i># of Calls</i>
+            </th>
+            <th className=" border-gray-400 border-[1px] ">
+              <i>mm/dd/yyyy</i>
+            </th>
+          </tr>
           {filteredData.map((item) => (
-            <div
-              key={item.phoneNumber + item.called}
-              className="flex my-3 items-center justify-between bg-white text-black  "
-            >
-              <div className="flex flex-col justify-center items-center w-[40%] ">
+            <tr key={item.phoneNumber + item.called} className="text-center">
+              <td className="border-gray-400 border-[1px]">
                 <h3>{item.firstName}</h3>
-                <h3 className="font-bold ">{item.lastName}</h3>
-              </div>
-              <div className="flex justify-center text-[14px] w-[10%] ">
-                <i>{item.numberOfCalls}</i>
-              </div>
-              <div className="flex gap-3 justify-center  w-[50%] ">
-                <h3>
-                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                  })}
-                </h3>
-                <span>&#10148;</span>
-              </div>
-            </div>
+                <h3 className="font-bold">{item.lastName}</h3>
+              </td>
+              <td className="border-gray-400 border-[1px] ">{item.numberOfCalls}</td>
+              <td className="border-gray-400 border-[1px]">
+                {new Date(item.called * 1000).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
+              </td>
+            </tr>
           ))}
-        </div>
+        </table>
       </div>
     </article>
   );
