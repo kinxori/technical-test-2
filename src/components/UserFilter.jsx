@@ -5,7 +5,7 @@ export default function UserFilterComponent() {
   const [filteredData, setFilteredData] = useState([{}]);
 
   useEffect(() => {
-    // Removing repeated contacts
+    // Reducing repeated contacts
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
       if (!existingContact) {
@@ -52,7 +52,10 @@ export default function UserFilterComponent() {
             </th>
           </tr>
           {filteredData.map((item) => (
-            <tr key={item.phoneNumber + item.called} className="text-center  h-[35px]">
+            <tr
+              key={item.phoneNumber + item.called}
+              className="text-center  h-[35px] even:bg-blue-100"
+            >
               <td className="border-gray-400 border-[1px] ">
                 <h3>
                   {item.firstName} <span className="font-bold">{item.lastName}</span>
