@@ -36,7 +36,7 @@ export default function UserFilterComponent() {
         <h1 className="text-[24px] text-white font-bold ">Favorite Contacts</h1>
       </div>
       <div className="border-box p-5 overflow-auto grid grid-flow-row">
-        <table className="w-full border-gray-400 border-[1px] text-black ">
+        <table className="w-full border-gray-400 border-[1px] text-black border-collapse ">
           <tr className="text-center bg-black/20">
             <th className=" border-gray-400 border-[1px]">
               <i>Name</i>
@@ -50,9 +50,10 @@ export default function UserFilterComponent() {
           </tr>
           {filteredData.map((item) => (
             <tr key={item.phoneNumber + item.called} className="text-center">
-              <td className="border-gray-400 border-[1px]">
-                <h3>{item.firstName}</h3>
-                <h3 className="font-bold">{item.lastName}</h3>
+              <td className="border-gray-400 border-[1px] ">
+                <h3>
+                  {item.firstName} <span className="font-bold">{item.lastName}</span>
+                </h3>
               </td>
               <td className="border-gray-400 border-[1px] ">{item.numberOfCalls}</td>
               <td className="border-gray-400 border-[1px]">
