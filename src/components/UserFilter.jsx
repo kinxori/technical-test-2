@@ -31,7 +31,7 @@ export default function UserFilterComponent() {
   // console.log(filteredData);
 
   return (
-    <article className="w-[600px] h-[500px] rounded-md flex flex-col justify-start items-center border-white border-[2px] bg-white  ">
+    <article className="w-[auto] h-[500px] rounded-md flex flex-col justify-start items-center border-white border-[2px] bg-white  ">
       <div className="bg-purple-600 w-[100%] h-[50px] flex justify-center items-center  ">
         <h1 className="text-[24px] font-bold ">Favorite Contacts</h1>
       </div>
@@ -39,13 +39,15 @@ export default function UserFilterComponent() {
         {filteredData.map((item) => (
           <div
             key={item.phoneNumber + item.called}
-            className="flex w-[100%] h-[40px] items-center bg-white text-black  "
+            className="flex w-[100%] h-[50px] my-3 items-center justify-around bg-white text-black  "
           >
-            <div className="flex justify-center  w-[20%] ">
-              <h3>{item.firstName}</h3>
-            </div>
-            <div className="flex justify-center w-[20%] font-bold ">
-              <h3>{item.lastName}</h3>
+            <div className="flex flex-col w-[20%] ">
+              <div className="flex justify-center  ">
+                <h3>{item.firstName}</h3>
+              </div>
+              <div className="flex justify-center font-bold ">
+                <h3>{item.lastName}</h3>
+              </div>
             </div>
             <div className="flex justify-center w-[20%] text-[14px] ">
               <i>Calls {item.numberOfCalls}</i>
@@ -54,7 +56,7 @@ export default function UserFilterComponent() {
               <h3>
                 {new Date(item.called * 1000).toLocaleDateString("en-US", {
                   year: "numeric",
-                  month: "long",
+                  month: "numeric",
                   day: "numeric",
                 })}
               </h3>
