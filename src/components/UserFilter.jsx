@@ -31,28 +31,28 @@ export default function UserFilterComponent() {
   // console.log(filteredData);
 
   return (
-    <article className="w-[auto] h-[500px] rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
+    <article className="w-[auto] rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
       <div className="bg-purple-600  py-3 flex justify-center items-center  ">
         <h1 className="text-[24px] text-white font-bold ">Favorite Contacts</h1>
       </div>
       <div className="border-box p-5 overflow-auto">
         <table className="w-full border-gray-400 border-[1px] text-black border-collapse ">
-          <tr className="text-center bg-black/20 ">
-            <th className=" border-gray-400 border-[1px]">
+          <tr className="text-center bg-black/20 h-[50px]">
+            <th className=" border-gray-400 border-[1px] min-w-[150px]   ">
               <i>Name</i>
             </th>
-            <th className=" border-gray-400 border-[1px]">
+            <th className=" border-gray-400 border-[1px] min-w-[100px]">
               <i># of Calls</i>
             </th>
-            <th className=" border-gray-400 border-[1px] ">
+            <th className=" border-gray-400 border-[1px] min-w-[150px]">
               <i>mm/dd/yyyy</i>
             </th>
-            <th className=" border-gray-400 border-[1px] ">
+            <th className=" border-gray-400 border-[1px] min-w-[150px]  ">
               <i>Phone #</i>
             </th>
           </tr>
           {filteredData.map((item) => (
-            <tr key={item.phoneNumber + item.called} className="text-center ">
+            <tr key={item.phoneNumber + item.called} className="text-center  h-[35px]">
               <td className="border-gray-400 border-[1px] ">
                 <h3>
                   {item.firstName} <span className="font-bold">{item.lastName}</span>
