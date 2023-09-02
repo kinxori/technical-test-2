@@ -37,40 +37,41 @@ export default function UserFilterComponent() {
       </div>
       <div className="border-box p-5 overflow-auto">
         <table className="w-full border-gray-400 border-[1px] text-black border-collapse ">
-          <tr className="text-center bg-black/20 h-[50px]">
-            <th className=" border-gray-400 border-[1px] min-w-[150px]   ">
-              <i>Name</i>
-            </th>
-            <th className=" border-gray-400 border-[1px] min-w-[100px]">
-              <i># of Calls</i>
-            </th>
-            <th className=" border-gray-400 border-[1px] min-w-[150px]">
-              <i>mm/dd/yyyy</i>
-            </th>
-            <th className=" border-gray-400 border-[1px] min-w-[150px]  ">
-              <i>Phone #</i>
-            </th>
-          </tr>
-          {filteredData.map((item) => (
-            <tr
-              key={item.phoneNumber + item.called}
-              className="text-center  h-[35px] even:bg-blue-100"
-            >
-              <td className="border-gray-400 border-[1px] ">
-                <h3>
-                  {item.firstName} <span className="font-bold">{item.lastName}</span>
-                </h3>
-              </td>
-              <td className="border-gray-400 border-[1px] ">{item.numberOfCalls}</td>
-              <td className="border-gray-400 border-[1px] ">
-                {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "numeric",
-                  day: "numeric",
-                })}
-              </td>
-              <td className="border-gray-400 border-[1px]">{item.phoneNumber}</td>
+          <thead>
+            <tr className="text-center bg-black/20 h-[50px]">
+              <th className=" border-gray-400 border-[1px] min-w-[150px]   ">
+                <i>Name</i>
+              </th>
+              <th className=" border-gray-400 border-[1px] min-w-[100px]">
+                <i># of Calls</i>
+              </th>
+              <th className=" border-gray-400 border-[1px] min-w-[150px]">
+                <i>mm/dd/yyyy</i>
+              </th>
+              <th className=" border-gray-400 border-[1px] min-w-[150px]  ">
+                <i>Phone #</i>
+              </th>
             </tr>
+          </thead>
+          {filteredData.map((item) => (
+            <tbody key={item.phoneNumber + item.called}>
+              <tr className="text-center  h-[35px] even:bg-blue-100">
+                <td className="border-gray-400 border-[1px] ">
+                  <h3>
+                    {item.firstName} <span className="font-bold">{item.lastName}</span>
+                  </h3>
+                </td>
+                <td className="border-gray-400 border-[1px] ">{item.numberOfCalls}</td>
+                <td className="border-gray-400 border-[1px] ">
+                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+                </td>
+                <td className="border-gray-400 border-[1px]">{item.phoneNumber}</td>
+              </tr>
+            </tbody>
           ))}
         </table>
       </div>
