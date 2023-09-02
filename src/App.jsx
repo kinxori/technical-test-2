@@ -5,13 +5,15 @@ export default function App() {
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
-      <div className="border-box p-10 flex flex-col gap-5 h-screen ms:p-[10%] ms:gap-10 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
-        <div className="flex flex-col gap-3 text-justify ls:w-[40%] ">
-          <h1 className="font-[rubik] font-bold text-[60px] text-left underline">Hey there!</h1>
-          <p>
+      <div className="border-box p-10 flex flex-col gap-5 h-screen ms:p-[10%] ms:gap-10 ls:gap-20 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
+        <div className="flex flex-col gap-3 text-justify ls:gap-5 ls:w-[100%]  ">
+          <h1 className="font-[rubik] font-bold text-[60px] text-left underline ls:text-[90px] ">
+            Hey there!
+          </h1>
+          <p className="ls:w-[90%]">
             Welcome, this is my second #technicalTest I've had to complete for a Frontend JR role!
           </p>
-          <p>
+          <p className="ls:w-[90%]">
             The main purpose of this project was to test <b className="italic">Array Methods</b>.
             For this test, there was 3 main points to complete:
           </p>
