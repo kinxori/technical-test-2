@@ -5,8 +5,8 @@ export default function App() {
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
-      <div className="border-box p-10 flex flex-col gap-5">
-        <div className="flex flex-col gap-3 text-justify">
+      <div className="border-box p-10 flex flex-col gap-5 ms:p-[15%] ms:gap-10 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
+        <div className="flex flex-col gap-3 text-justify ls:w-[40%] ">
           <h1 className="font-[rubik] font-bold text-[60px] text-left underline">Hey there!</h1>
           <p>
             Welcome, this is my second #technicalTest I've had to complete for a Frontend JR role!

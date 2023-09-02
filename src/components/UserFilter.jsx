@@ -31,7 +31,7 @@ export default function UserFilterComponent() {
   // console.log(filteredData);
 
   return (
-    <article className="w-[auto] rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
+    <article className="rounded-md flex flex-col justify-start border-white overflow-hidden bg-white  ">
       <div className="bg-purple-600  py-3 flex justify-center items-center  ">
         <h1 className="text-[24px] text-white font-bold ">Favorite Contacts</h1>
       </div>
