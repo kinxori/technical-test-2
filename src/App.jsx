@@ -6,8 +6,8 @@ export default function App() {
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
       <div className="border-box p-10 flex flex-col gap-5 h-screen ms:p-[10%] ms:gap-10 ls:gap-20 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
-        <div className="flex flex-col gap-3 text-justify ls:gap-5 ls:w-[100%]  ">
-          <h1 className="font-[rubik] font-bold text-[60px] text-left underline ls:text-[90px] ">
+        <div className="flex flex-col gap-3 text-justify ls:gap-5 ls:w-[80%]  ">
+          <h1 className="font-[rubik] font-bold text-[60px] text-left underline ls:text-[80px] ">
             Hey there!
           </h1>
           <p className="ls:w-[90%]">
