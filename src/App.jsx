@@ -25,8 +25,9 @@ export default function App() {
         </div>
         <UserFilter />
       </div>
-      <article>
-        <h3>Technical Overview</h3>
+      <article className="border-box p-10 font-[inter] flex flex-col gap-5">
+        <h3 className="font-bold text-[20px] ">Technical Implementations</h3>
+        <p>Reduce repeated users:</p>
       </article>
     </section>
   );
