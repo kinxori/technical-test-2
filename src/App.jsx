@@ -4,7 +4,96 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function App() {
-  const code = `
+  const dataCode = `
+export const data = [
+  {
+    firstName: "John",
+    lastName: "Smith",
+    phoneNumber: "+15551234567",
+    called: 1533556800,
+  },
+  {
+    firstName: "John",
+    lastName: "Smith",
+    phoneNumber: "+15551234567",
+    called: 1533633205,
+  },
+  {
+    firstName: "Jane",
+    lastName: "Bolster",
+    phoneNumber: "+15555550000",
+    called: 1533633205,
+  },
+  {
+    firstName: "William",
+    lastName: "Clubb",
+    phoneNumber: "+15552323231",
+    called: 1533640205,
+  },
+  {
+    firstName: "William",
+    lastName: "Clubb",
+    phoneNumber: "+15552323231",
+    called: 1533978805,
+  },
+  {
+    firstName: "John",
+    lastName: "Smith",
+    phoneNumber: "+15551234567",
+    called: 1534065205,
+  },
+  {
+    firstName: "Christina",
+    lastName: "Brown",
+    phoneNumber: "+15557654321",
+    called: 1534065205,
+  },
+  {
+    firstName: "Alexis",
+    lastName: "Johnson",
+    phoneNumber: "+15556677884",
+    called: 1534151605,
+  },
+  {
+    firstName: "William",
+    lastName: "Clubb",
+    phoneNumber: "+15552323231",
+    called: 1534238005,
+  },
+  {
+    firstName: "Christina",
+    lastName: "Brown",
+    phoneNumber: "+15557654321",
+    called: 1534324405,
+  },
+  {
+    firstName: "Maureen",
+    lastName: "Wallace",
+    phoneNumber: "+15554489012",
+    called: 1534410805,
+  },
+  {
+    firstName: "Maureen",
+    lastName: "Wallace",
+    phoneNumber: "+15554489012",
+    called: 1534424405,
+  },
+  {
+    firstName: "David", lastName: "Glass", phoneNumber: "+15554489122", called: 1534497205,
+  },
+  {
+    firstName: "Christina", lastName: "Brown", phoneNumber: "+15557654321", called: 1534583605,
+  },
+  {
+    firstName: "Sonja", lastName: "Aston", phoneNumber: "+15553322110", called: 1534670005,
+  },
+  {
+    firstName: "Jane", lastName: "Bolster", phoneNumber: "+15555550000", called: 1536058380 },
+];
+
+`;
+
+  const reduceCode = `
   import { data } from "~/callHistory";
 
   useEffect(() => {
@@ -40,6 +129,10 @@ export default function App() {
       </div>
       <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify">
         <h3 className="font-bold text-[24px]">Technical Implementations</h3>
+        <h4 className="font-bold text-[16px]">Data:</h4>
+        <SyntaxHighlighter style={dracula} language="javascript">
+          {dataCode}
+        </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">Reduce repeated users:</h4>
         <p>
           From the original data, the first step is to reduce repeated data and return the reduced
@@ -50,7 +143,7 @@ export default function App() {
           <b className="italic">useEffect</b> and <b className="italic">reduce()</b>
         </p>
         <SyntaxHighlighter style={dracula} language="javascript">
-          {code}
+          {reduceCode}
         </SyntaxHighlighter>
       </article>
     </section>
