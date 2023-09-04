@@ -2,23 +2,14 @@ import UserFilter from "./components/UserFilter";
 import bgImg from "./assets/kinxori-background-for-assets-template.png";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { useEffect } from "react";
 
 export default function App() {
   const code = `
+  import { data } from "~/callHistory";
+
   useEffect(() => {
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
-      if (!existingContact) {
-        acc.push({
-          ...contact,
-          numberOfCalls: 1,
-          lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
-        });
-      } else {
-        existingContact.numberOfCalls++;
-        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
-      }
       return acc;
     }, []);
   });
