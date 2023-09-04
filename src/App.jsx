@@ -40,6 +40,29 @@ export default function App() {
   },[]);
   `;
 
+  const numberOfCallsCode = `
+  import { data } from "~/callHistory";
+
+  const [filteredData, setFilteredData] = useState(data);
+
+  useEffect(() => {
+    const uniqueContacts = data.reduce((acc, contact) => {
+      const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
+      if (!existingContact) {
+        acc.push({
+          ...contact,
+          numberOfCalls: 1,
+        });
+      } else {
+        existingContact.numberOfCalls++;
+      }
+      return acc;
+    }, []);
+
+    setFilteredData(uniqueContacts);
+  },[]);
+  `;
+
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
@@ -76,14 +99,22 @@ export default function App() {
         </p>
         <p>
           To achieve this, we are using High Order Functions (HOF), in this example{" "}
-          <b className="italic">useEffect</b> and <b className="italic">reduce()</b> and{" "}
-          <b className="italic">find()</b>.
+          <b className="italic">useEffect</b>, <b className="italic">useState</b>,{" "}
+          <b className="italic">reduce()</b> and <b className="italic">find()</b>.
         </p>
         <SyntaxHighlighter style={dracula} language="javascript">
           {reduceCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">2. Count the number of calls for each contact:</h4>
-        <p>Now, we have to </p>
+        <p>
+          Now, we have a new Array stored in our <b className="italic">useState</b> variable. Using
+          the <b className="italic">push()</b> method we can add a new{" "}
+          <b className="italic">key-value</b> named "numberOfCalls" the to the Array with our count
+          of calls for each user.
+        </p>
+        <SyntaxHighlighter style={dracula} language="javascript">
+          {numberOfCallsCode}
+        </SyntaxHighlighter>
       </article>
     </section>
   );
