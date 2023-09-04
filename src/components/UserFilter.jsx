@@ -35,7 +35,7 @@ export default function UserFilterComponent() {
       <div className="border-box p-5 overflow-auto ">
         <table className="w-full rounded-md overflow-hidden shadow-lg shadow-black/20 border-gray-400 border-y-[1px] text-black border-collapse ">
           <thead className="text-center bg-purple-600 h-[70px] text-white ">
-            <tr className=" border-gray-400 border-y-[1px]  ">
+            <tr className=" border-purple-600 border-y-[1px]  ">
               <th className="min-w-[150px]   ">
                 <i>Name</i>
               </th>
@@ -54,9 +54,9 @@ export default function UserFilterComponent() {
           {filteredData.map((item) => (
             <tbody
               key={item.phoneNumber + item.called}
-              className="even:bg-purple-50 h-[50px] text-center "
+              className="even:bg-purple-100 h-[50px] text-center "
             >
-              <tr className="border-gray-400 border-y-[1px]">
+              <tr className="border-purple-600 border-y-[1px]">
                 <td>
                   <h3>
                     {item.firstName} <span className="font-bold">{item.lastName}</span>

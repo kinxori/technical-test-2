@@ -25,6 +25,9 @@ export default function App() {
         </div>
         <UserFilter />
       </div>
+      <article>
+        <h3>Technical Overview</h3>
+      </article>
     </section>
   );
 }
