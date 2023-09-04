@@ -28,12 +28,16 @@ export default function App() {
   const reduceCode = `
   import { data } from "~/callHistory";
 
+  const [filteredData, setFilteredData] = useState(data);
+
   useEffect(() => {
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
       return acc;
     }, []);
-  });
+
+    setFilteredData(uniqueContacts);
+  },[]);
   `;
 
   return (
@@ -53,8 +57,8 @@ export default function App() {
           </p>
           <ul className="list-disc pl-8">
             <li>Remove repeated contacts</li>
-            <li>Sorting contacts by number of calls</li>
-            <li>Sorting contacts by call history</li>
+            <li>Count the number of calls for each contact</li>
+            <li>Sorting contacts by latest call history and higher calls</li>
           </ul>
         </div>
         <UserFilter />
@@ -65,18 +69,21 @@ export default function App() {
         <SyntaxHighlighter style={dracula} language="javascript">
           {dataCode}
         </SyntaxHighlighter>
-        <h4 className="font-bold text-[16px]">Reduce repeated users:</h4>
+        <h4 className="font-bold text-[16px]">1. Reduce repeated users:</h4>
         <p>
           From the original data, the first step is to reduce repeated data and return the reduced
           list.
         </p>
         <p>
           To achieve this, we are using High Order Functions (HOF), in this example{" "}
-          <b className="italic">useEffect</b> and <b className="italic">reduce()</b>
+          <b className="italic">useEffect</b> and <b className="italic">reduce()</b> and{" "}
+          <b className="italic">find()</b>.
         </p>
         <SyntaxHighlighter style={dracula} language="javascript">
           {reduceCode}
         </SyntaxHighlighter>
+        <h4 className="font-bold text-[16px]">2. Count the number of calls for each contact:</h4>
+        <p>Now, we have to </p>
       </article>
     </section>
   );
