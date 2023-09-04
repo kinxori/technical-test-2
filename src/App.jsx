@@ -1,7 +1,29 @@
 import UserFilter from "./components/UserFilter";
 import bgImg from "./assets/kinxori-background-for-assets-template.png";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { useEffect } from "react";
 
 export default function App() {
+  const code = `
+  useEffect(() => {
+    const uniqueContacts = data.reduce((acc, contact) => {
+      const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
+      if (!existingContact) {
+        acc.push({
+          ...contact,
+          numberOfCalls: 1,
+          lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
+        });
+      } else {
+        existingContact.numberOfCalls++;
+        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
+      }
+      return acc;
+    }, []);
+  });
+  `;
+
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
@@ -25,9 +47,20 @@ export default function App() {
         </div>
         <UserFilter />
       </div>
-      <article className="border-box p-10 font-[inter] flex flex-col gap-5">
-        <h3 className="font-bold text-[20px] ">Technical Implementations</h3>
-        <p>Reduce repeated users:</p>
+      <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify">
+        <h3 className="font-bold text-[24px]">Technical Implementations</h3>
+        <h4 className="font-bold text-[16px]">Reduce repeated users:</h4>
+        <p>
+          From the original data, the first step is to reduce repeated data and return the reduced
+          list.
+        </p>
+        <p>
+          To achieve this, we are using High Order Functions (HOF), in this example{" "}
+          <b className="italic">useEffect</b> and <b className="italic">reduce()</b>
+        </p>
+        <SyntaxHighlighter style={dracula} language="javascript">
+          {code}
+        </SyntaxHighlighter>
       </article>
     </section>
   );
