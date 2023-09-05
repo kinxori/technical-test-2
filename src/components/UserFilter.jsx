@@ -58,9 +58,7 @@ export default function UserFilterComponent() {
             >
               <tr className="border-purple-600 border-y-[1px]">
                 <td>
-                  <h3>
-                    {item.firstName} <span className="font-bold">{item.lastName}</span>
-                  </h3>
+                  {item.firstName} <span className="font-bold">{item.lastName}</span>
                 </td>
                 <td>{item.numberOfCalls}</td>
                 <td>

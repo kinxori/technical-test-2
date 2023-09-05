@@ -96,9 +96,11 @@ export default function App() {
       <tbody key={item.phoneNumber + item.called}>
         <tr>
           <td>
-            {item.firstName} <span className="font-bold">{item.lastName}</span>
+            {item.firstName} <span>{item.lastName}</span>
           </td>
-          <td>{item.numberOfCalls}</td>
+          <td>
+            {item.numberOfCalls}
+          </td>
           <td>
             {new Date(item.called * 1000).toLocaleDateString("en-US", {
               year: "numeric",
@@ -106,7 +108,9 @@ export default function App() {
               day: "numeric",
             })}
           </td>
-          <td>{item.phoneNumber}</td>
+          <td>
+            {item.phoneNumber}
+          </td>
         </tr>
       </tbody>
     ))}
@@ -192,8 +196,12 @@ export default function App() {
           <b className="italic">{`<table></table>`}</b> and <b className="italic">map()</b>.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
-          {sortedUsersCode}
+          {jsxCode}
         </SyntaxHighlighter>
+        <p>
+          That all for this technical test! I hope this was helpful to understand a little bit about
+          my thought process and my overall skills. 😁✌️
+        </p>
       </article>
     </section>
   );
