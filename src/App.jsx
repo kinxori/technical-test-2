@@ -90,6 +90,29 @@ export default function App() {
   }, []);
   `;
 
+  const jsxCode = `
+    <table>
+    {filteredData.map((item) => (
+      <tbody key={item.phoneNumber + item.called}>
+        <tr>
+          <td>
+            {item.firstName} <span className="font-bold">{item.lastName}</span>
+          </td>
+          <td>{item.numberOfCalls}</td>
+          <td>
+            {new Date(item.called * 1000).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </td>
+          <td>{item.phoneNumber}</td>
+        </tr>
+      </tbody>
+    ))}
+  </table>;
+  `;
+
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
