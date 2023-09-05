@@ -164,6 +164,10 @@ export default function App() {
           The las thing we need to acomplish this small project is to display our final data, which
           comes from <b className="italic">filteredData</b>.
         </p>
+        <p>
+          For a easy to read component, we will be using{" "}
+          <b className="italic">{`<table></table>`}</b> and <b className="italic">map()</b>.
+        </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {sortedUsersCode}
         </SyntaxHighlighter>
