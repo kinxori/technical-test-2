@@ -157,7 +157,13 @@ export default function App() {
           {sortedUsersCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">Display data</h4>
-        <p></p>
+        <p>
+          The las thing we need to acomplish this small project is to display our final data, which
+          comes from <b className="italic">filteredData</b>.
+        </p>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {sortedUsersCode}
+        </SyntaxHighlighter>
       </article>
     </section>
   );
