@@ -146,8 +146,11 @@ export default function App() {
           3. Sorting contacts by latest call history and higher calls:
         </h4>
         <p>
-          At this point, the last point to cover is to sort each user in order to be the highest
+          At this point, the last thing to cover is to sort each user in order to be the highest
           number of calls on top.
+        </p>
+        <p>
+          Additionally to this, we need to convert the date originally in number to a human string.
         </p>
         <p>
           In case there are users with the same number of calls, let's sort them by the latest call
@@ -156,7 +159,7 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {sortedUsersCode}
         </SyntaxHighlighter>
-        <h4 className="font-bold text-[16px]">Display data</h4>
+        <h4 className="font-bold text-[16px]">4. Display data</h4>
         <p>
           The las thing we need to acomplish this small project is to display our final data, which
           comes from <b className="italic">filteredData</b>.
