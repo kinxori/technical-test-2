@@ -63,6 +63,33 @@ export default function App() {
   },[]);
   `;
 
+  const sortedUsersCode = `
+  import { data } from "~/callHistory";
+
+  const [filteredData, setFilteredData] = useState(data);
+
+  useEffect(() => {
+    const uniqueContacts = data.reduce((acc, contact) => {
+      const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
+      if (!existingContact) {
+        acc.push({
+          ...contact,
+          numberOfCalls: 1,
+          lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
+        });
+      } else {
+        existingContact.numberOfCalls++;
+        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
+      }
+      return acc;
+    }, []);
+
+    const sortedContacts = uniqueContacts.sort((a, b) => b.numberOfCalls - a.numberOfCalls);
+
+    setFilteredData(sortedContacts);
+  }, []);
+  `;
+
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
@@ -89,7 +116,7 @@ export default function App() {
       <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify">
         <h3 className="font-bold text-[24px]">Technical Implementations</h3>
         <h4 className="font-bold text-[16px]">Data:</h4>
-        <SyntaxHighlighter style={dracula} language="javascript">
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {dataCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">1. Reduce repeated users:</h4>
@@ -102,7 +129,7 @@ export default function App() {
           <b className="italic">useEffect</b>, <b className="italic">useState</b>,{" "}
           <b className="italic">reduce()</b> and <b className="italic">find()</b>.
         </p>
-        <SyntaxHighlighter style={dracula} language="javascript">
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {reduceCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">2. Count the number of calls for each contact:</h4>
@@ -112,12 +139,23 @@ export default function App() {
           <b className="italic">key-value</b> named "numberOfCalls" the to the Array with our count
           of calls for each user.
         </p>
-        <SyntaxHighlighter style={dracula} language="javascript">
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {numberOfCallsCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">
           3. Sorting contacts by latest call history and higher calls:
         </h4>
+        <p>
+          At this point, the last point to cover is to sort each user in order to be the highest
+          number of calls on top.
+        </p>
+        <p>
+          In case there are users with the same number of calls, let's sort them by the latest call
+          out of all.
+        </p>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {sortedUsersCode}
+        </SyntaxHighlighter>
       </article>
     </section>
   );
