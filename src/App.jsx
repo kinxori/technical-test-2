@@ -108,13 +108,16 @@ export default function App() {
         <h4 className="font-bold text-[16px]">2. Count the number of calls for each contact:</h4>
         <p>
           Now, we have a new Array stored in our <b className="italic">useState</b> variable. Using
-          the <b className="italic">push()</b> method we can add a new{" "}
+          the <b className="italic">push()</b> method, we can add a new{" "}
           <b className="italic">key-value</b> named "numberOfCalls" the to the Array with our count
           of calls for each user.
         </p>
         <SyntaxHighlighter style={dracula} language="javascript">
           {numberOfCallsCode}
         </SyntaxHighlighter>
+        <h4 className="font-bold text-[16px]">
+          3. Sorting contacts by latest call history and higher calls:
+        </h4>
       </article>
     </section>
   );
