@@ -156,6 +156,8 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {sortedUsersCode}
         </SyntaxHighlighter>
+        <h4 className="font-bold text-[16px]">Display data</h4>
+        <p></p>
       </article>
     </section>
   );
