@@ -120,7 +120,7 @@ export default function App() {
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
-      <div className="border-box p-10 flex flex-col gap-5 h-screen ms:p-[10%] ms:gap-10 ls:gap-20 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
+      <div className="border-box p-10 flex flex-col gap-5  ms:p-[10%] ms:gap-10 ls:h-screen ls:gap-20 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
         <div className="flex flex-col gap-3 text-justify ls:gap-5 ls:w-[80%]  ">
           <h1 className="font-[rubik] font-bold text-[60px] text-left underline ls:text-[80px] ">
             Hey there!
@@ -133,19 +133,17 @@ export default function App() {
             <b className="italic">JavaScript Array Methods</b>. Throughout the test, we tackled
             three key tasks:
           </p>
-          <ul className="list-disc pl-8">
+          <ul className="list-disc pl-8 flex flex-col gap-3">
             <li>
-              <b>Eliminating Duplicate Contacts:</b> Meticulously removed redundant contact entries
-              to ensure a streamlined and unique list.
+              <b>Eliminating Duplicate Contacts:</b> Removed redundant users entries to ensure a
+              unique list.
             </li>
             <li>
-              <b>Counting Call Frequency:</b> Our code meticulously tallied the number of calls for
-              each contact, providing valuable insights into communication patterns.
+              <b>Counting Call Frequency:</b> Tallied the number of calls for each user.
             </li>
             <li>
-              <b>Sorting by Call History:</b> We sorted users based on their latest call history and
-              the frequency of calls, enabling efficient analysis and easy identification of the
-              most active contacts.
+              <b>Sorting by Call History:</b> Sorted users based on their latest call history and
+              the frequency of calls, identifying the most active contacts.
             </li>
           </ul>
         </div>
