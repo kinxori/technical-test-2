@@ -207,8 +207,7 @@ export default function App() {
         <p>
           To achieve this, the code employs a combination of array manipulation techniques. First,
           it counts the number of calls for each user, ensuring an accurate measure of their
-          communication frequency. Subsequently, it converts the original numeric date into a
-          human-readable format.
+          communication frequency.
         </p>
         <p>
           In scenarios where multiple users share the same call count, the code further arranges
@@ -220,9 +219,9 @@ export default function App() {
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">5. Displaying Data:</h4>
         <p>
-          The final step in this small project is to present our refined data, sourced from
+          The final step in this small project is to present our refined data, sourced from{" "}
           <b className="italic">"filteredData"</b>. For a user-friendly and easily digestible
-          component, we utilize an HTML <b className="italic">{`<table>`}</b> element along with the
+          component, we utilize an HTML <b className="italic">{`<table>`}</b> element along with the{" "}
           <b className="italic">map()</b> function.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
