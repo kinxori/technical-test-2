@@ -33,9 +33,12 @@ export default function UserFilterComponent() {
   return (
     <article className="rounded-md w-full flex flex-col justify-start border-white overflow-hidden bg-white  ">
       <div className="border-box p-5 overflow-auto ">
-        <table className="w-full rounded-md overflow-hidden shadow-lg shadow-black/20 border-gray-400 border-y-[1px] text-black border-collapse ">
-          <thead className="text-center bg-purple-600 h-[70px] text-white ">
+        <table className=" w-[100%] rounded-md overflow-hidden shadow-lg shadow-black/20 border-gray-400 border-y-[1px] text-black border-collapse ">
+          <thead className="text-center bg-purple-600 h-[70px] text-white  w-[100%] ">
             <tr className=" border-purple-600 border-y-[1px]  ">
+              <th className="w-fit">
+                <i>&#160;</i>
+              </th>
               <th className="min-w-[150px]   ">
                 <i>Name</i>
               </th>
@@ -52,41 +55,50 @@ export default function UserFilterComponent() {
             </tr>
           </thead>
           {filteredData.map((item) => (
-            <tbody key={item.phoneNumber + item.called} className="even:bg-purple-100 text-center ">
-              <tr className="border-purple-600 border-y-[1px] h-[50px]">
-                <td>
-                  {item.firstName} <span className="font-bold">{item.lastName}</span>
-                </td>
-                <td>{item.numberOfCalls}</td>
-                <td>
-                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                  })}
-                </td>
-                <td>{item.phoneNumber}</td>
-              </tr>
-              <tr>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>History</th>
-                    </tr>
-                    <tr>
-                      <th>Date</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Hola</td>
-                      <td>unos cuantos</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </tr>
-            </tbody>
+            <>
+              <tbody
+                key={item.phoneNumber + item.called}
+                className="even:bg-purple-100 text-center  w-[100%] "
+              >
+                <tr className="border-purple-600 border-y-[1px] h-[50px] w-[100%]">
+                  <td>
+                    <i className="fa-solid fa-chevron-down"></i>
+                  </td>
+                  <td>
+                    {item.firstName} <span className="font-bold">{item.lastName}</span>
+                  </td>
+                  <td>{item.numberOfCalls}</td>
+                  <td>
+                    {new Date(item.called * 1000).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "numeric",
+                      day: "numeric",
+                    })}
+                  </td>
+                  <td>{item.phoneNumber}</td>
+                </tr>
+                <tr className=" h-[150px] w-[100px] bg-red-500 ">
+                  <h3>History</h3>
+                  {/* <div className=" w-[100%]">
+                    <div className="border-box p-5 font-bold  w-[100%] "></div> */}
+                  {/* <table className="w-full  ">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>ID</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Hola</td>
+                          <td>unos cuantos</td>
+                        </tr>
+                      </tbody>
+                    </table> */}
+                  {/* </div> */}
+                </tr>
+              </tbody>
+            </>
           ))}
         </table>
       </div>
