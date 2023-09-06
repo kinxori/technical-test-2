@@ -185,12 +185,13 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {reduceCode}
         </SyntaxHighlighter>
-        <h4 className="font-bold text-[16px]">2. Count the number of calls for each contact:</h4>
+        <h4 className="font-bold text-[16px]">3. Calculating Call Counts for Each User:</h4>
         <p>
-          Now, we have a new Array stored in our <b className="italic">useState</b> variable. Using
-          the <b className="italic">push()</b> method, we can add a new{" "}
-          <b className="italic">key-value</b> named "numberOfCalls" the to the Array with our count
-          of calls for each user.
+          With our refined data stored in the useState variable, we employ a method to tally the
+          number of calls for each user. By introducing a new{" "}
+          <b className="italic">"numberOfCalls"</b> key-value pair to the array, we meticulously
+          track and update the call count for each individual. This step equips us with valuable
+          insights into communication frequency.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {numberOfCallsCode}
