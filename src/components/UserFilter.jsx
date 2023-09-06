@@ -40,10 +40,10 @@ export default function UserFilterComponent() {
                 <i>Name</i>
               </th>
               <th className="min-w-[100px]">
-                <i># of Calls</i>
+                <i>Amount</i>
               </th>
               <th className="min-w-[150px]">
-                <i>Last Call </i>
+                <i>Date</i>
                 <h5 className="text-white/50 text-[10px] font-normal ">(mm/dd/yyyy)</h5>
               </th>
               <th className="min-w-[150px]  ">
@@ -52,11 +52,8 @@ export default function UserFilterComponent() {
             </tr>
           </thead>
           {filteredData.map((item) => (
-            <tbody
-              key={item.phoneNumber + item.called}
-              className="even:bg-purple-100 h-[50px] text-center "
-            >
-              <tr className="border-purple-600 border-y-[1px]">
+            <tbody key={item.phoneNumber + item.called} className="even:bg-purple-100 text-center ">
+              <tr className="border-purple-600 border-y-[1px] h-[50px]">
                 <td>
                   {item.firstName} <span className="font-bold">{item.lastName}</span>
                 </td>
@@ -69,6 +66,25 @@ export default function UserFilterComponent() {
                   })}
                 </td>
                 <td>{item.phoneNumber}</td>
+              </tr>
+              <tr>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>History</th>
+                    </tr>
+                    <tr>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Hola</td>
+                      <td>unos cuantos</td>
+                    </tr>
+                  </tbody>
+                </table>
               </tr>
             </tbody>
           ))}
