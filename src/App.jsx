@@ -33,6 +33,9 @@ export default function App() {
   useEffect(() => {
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
+      if (!existingContact) {
+        acc.push(contact);
+      }
       return acc;
     }, []);
 
@@ -166,15 +169,18 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {dataCode}
         </SyntaxHighlighter>
-        <h4 className="font-bold text-[16px]">1. Reduce repeated users:</h4>
+        <h4 className="font-bold text-[16px]">2. Remove repeated users:</h4>
         <p>
-          From the original data, the first step is to reduce repeated data and return the reduced
-          list.
+          From the original dataset, our first mission is to eliminate redundancy and provide a
+          condensed list of unique contacts.
         </p>
         <p>
-          To achieve this, we are using High Order Functions (HOF), in this example{" "}
-          <b className="italic">useEffect</b>, <b className="italic">useState</b>,{" "}
-          <b className="italic">reduce()</b> and <b className="italic">find()</b>.
+          To achieve this, we are using key React hooks and Array methods, including{" "}
+          <b className="italic">"useEffect"</b>, <b className="italic">"useState"</b>,{" "}
+          <b className="italic">"reduce()"</b> and <b className="italic">"find()"</b>. These
+          functions work in harmony to sift through the data, identifying and excluding duplicate
+          entries. The result is a refined list of distinct contacts ready for further analysis and
+          sorting.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {reduceCode}
