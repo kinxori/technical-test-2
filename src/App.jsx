@@ -149,9 +149,20 @@ export default function App() {
         </div>
         <UserFilter />
       </div>
+      <hr className="w-80 mx-auto my-5"></hr>
       <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify">
         <h3 className="font-bold text-[24px]">Technical Implementations</h3>
-        <h4 className="font-bold text-[16px]">Data:</h4>
+        <p>
+          Explore the technical implementations within this section. Delve into the code to uncover
+          innovative solutions applied to address intricate challenges and ensure seamless
+          functionality. From optimizing data structures to employing algorithms, this is where the
+          magic unfolds behind the scenes.
+        </p>
+        <h4 className="font-bold text-[16px]">1. Original data:</h4>
+        <p>
+          Here's the raw data set that served as the foundation for this test. This data comprises a
+          diverse range of contacts, each with their own call history.
+        </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {dataCode}
         </SyntaxHighlighter>
