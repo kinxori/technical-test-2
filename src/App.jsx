@@ -171,27 +171,26 @@ export default function App() {
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">2. Remove repeated users:</h4>
         <p>
-          From the original dataset, our first mission is to eliminate redundancy and provide a
+          From the original dataset, the first mission is to eliminate redundancy and provide a
           condensed list of unique contacts.
         </p>
         <p>
-          To achieve this, we are using key React hooks and Array methods, including{" "}
-          <b className="italic">"useEffect"</b>, <b className="italic">"useState"</b>,{" "}
-          <b className="italic">"reduce()"</b> and <b className="italic">"find()"</b>. These
-          functions work in harmony to sift through the data, identifying and excluding duplicate
-          entries. The result is a refined list of distinct contacts ready for further analysis and
-          sorting.
+          Using key React hooks and Array methods, including <b className="italic">"useEffect"</b>,{" "}
+          <b className="italic">"useState"</b>, <b className="italic">"reduce()"</b> and{" "}
+          <b className="italic">"find()"</b>. These functions work in harmony to sift through the
+          data, identifying and excluding duplicate entries. The result is a refined list of
+          distinct contacts ready for further analysis and sorting.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {reduceCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">3. Calculating Call Counts for Each User:</h4>
         <p>
-          With our refined data stored in the useState variable, we employ a method to tally the
-          number of calls for each user. By introducing a new{" "}
-          <b className="italic">"numberOfCalls"</b> key-value pair to the array, we meticulously
-          track and update the call count for each individual. This step equips us with valuable
-          insights into communication frequency.
+          With the refined data stored in the useState variable, a method is employed to calculate
+          the number of calls for each user. This involves introducing a new{" "}
+          <b className="italic">"numberOfCalls"</b> key-value pair to the array and carefully
+          monitoring and updating the call count for each individual. This step provides valuable
+          insights into communication frequency
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {numberOfCallsCode}
@@ -219,22 +218,25 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {sortedUsersCode}
         </SyntaxHighlighter>
-        <h4 className="font-bold text-[16px]">4. Display data</h4>
+        <h4 className="font-bold text-[16px]">5. Displaying Data:</h4>
         <p>
-          The las thing we need to acomplish this small project is to display our final data, which
-          comes from <b className="italic">filteredData</b>.
-        </p>
-        <p>
-          For a easy to read component, we will be using{" "}
-          <b className="italic">{`<table></table>`}</b> and <b className="italic">map()</b>.
+          The final step in this small project is to present our refined data, sourced from
+          <b className="italic">"filteredData"</b>. For a user-friendly and easily digestible
+          component, we utilize an HTML <b className="italic">{`<table>`}</b> element along with the
+          <b className="italic">map()</b> function.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {jsxCode}
         </SyntaxHighlighter>
         <p>
-          That all for this technical test! I hope this was helpful to understand a little bit about
-          my thought process and my overall skills. 😁✌️
+          And that wraps up this technical test! I trust this provides insight into my thought
+          process and my technical capabilities. 😁✌️
         </p>
+        <i className="ml-auto text-right">
+          September 1, 2023
+          <br />
+          Gustavo Quiroz
+        </i>
       </article>
     </section>
   );
