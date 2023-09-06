@@ -36,10 +36,10 @@ export default function UserFilterComponent() {
         <table className=" w-[100%] rounded-md overflow-hidden shadow-lg shadow-black/20 border-gray-400 border-y-[1px] text-black border-collapse ">
           <thead className="text-center bg-purple-600 h-[70px] text-white  w-[100%] ">
             <tr className=" border-purple-600 border-y-[1px]  ">
-              <th className="w-fit">
+              <th className="min-w-[50px]">
                 <i>&#160;</i>
               </th>
-              <th className="min-w-[150px]   ">
+              <th className="min-w-[150px]">
                 <i>Name</i>
               </th>
               <th className="min-w-[100px]">
@@ -58,9 +58,9 @@ export default function UserFilterComponent() {
             <>
               <tbody
                 key={item.phoneNumber + item.called}
-                className="even:bg-purple-100 text-center  w-[100%] "
+                className="even:bg-purple-100 text-center w-[100%] "
               >
-                <tr className="border-purple-600 border-y-[1px] h-[50px] w-[100%]">
+                <tr className="border-purple-600 border-t-[1px] h-[50px]">
                   <td>
                     <i className="fa-solid fa-chevron-down"></i>
                   </td>
@@ -77,25 +77,27 @@ export default function UserFilterComponent() {
                   </td>
                   <td>{item.phoneNumber}</td>
                 </tr>
-                <tr className=" h-[150px] w-[100px] bg-red-500 ">
-                  <h3>History</h3>
-                  {/* <div className=" w-[100%]">
-                    <div className="border-box p-5 font-bold  w-[100%] "></div> */}
-                  {/* <table className="w-full  ">
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>ID</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Hola</td>
-                          <td>unos cuantos</td>
-                        </tr>
-                      </tbody>
-                    </table> */}
-                  {/* </div> */}
+                <tr className="h-fit">
+                  <td colSpan={5}>
+                    <div className="w-full">
+                      <h3 className="font-bold text-left p-5">History</h3>
+                      <div className="border-box p-5 font-bold  w-[100%] "></div>
+                      <table className="w-full  ">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>ID</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Hola</td>
+                            <td>unos cuantos</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </>
