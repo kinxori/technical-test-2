@@ -197,18 +197,24 @@ export default function App() {
           {numberOfCallsCode}
         </SyntaxHighlighter>
         <h4 className="font-bold text-[16px]">
-          3. Sorting contacts by latest call history and higher calls:
+          4. Sorting Contacts by Call Activity and Latest Communication:
         </h4>
         <p>
-          At this point, the last thing to cover is to sort each user in order to be the highest
-          number of calls on top.
+          In this phase, the focus shifts to organizing the list of users based on the number of
+          calls made, with priority given to those with the highest call activity appearing at the
+          top. Concurrently, the numeric date representation is enhanced into a more human-readable
+          format.
         </p>
         <p>
-          Additionally to this, we need to convert the date originally in number to a human string.
+          To achieve this, the code employs a combination of array manipulation techniques. First,
+          it counts the number of calls for each user, ensuring an accurate measure of their
+          communication frequency. Subsequently, it converts the original numeric date into a
+          human-readable format.
         </p>
         <p>
-          In case there are users with the same number of calls, let's sort them by the latest call
-          out of all.
+          In scenarios where multiple users share the same call count, the code further arranges
+          them based on the timestamp of their most recent call. This approach ensures a
+          comprehensive ranking that takes into account both call volume and recency."
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {sortedUsersCode}
