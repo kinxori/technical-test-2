@@ -123,20 +123,20 @@ export default function App() {
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
-      <div className="border-box p-10 flex flex-col gap-5  ms:p-[10%] ms:gap-10 ls:h-screen ls:gap-20 ls:p-[10%] ls:flex-row ls:justify-evenly ls:items-center  ">
+      <div className="border-box p-10 flex flex-col gap-5 ms:w-[80%] ms:mx-auto ms:gap-10 ls:h-screen ls:gap-20 ls:w-[90%] ls:flex-row ls:justify-evenly ls:items-center  ">
         <div className="flex flex-col gap-3 text-justify ls:gap-5 ls:w-[80%]  ">
-          <h1 className="font-[rubik] font-bold text-[60px] text-left underline ls:text-[80px] ">
+          <h1 className="font-[rubik] font-bold text-[60px] mb-5 text-left underline ls:text-[80px] ">
             Hey there!
           </h1>
-          <p className="ls:w-[90%]">
+          <p>
             Welcome, this is my second #technicalTest I've had to complete for a Frontend JR role!
           </p>
-          <p className="ls:w-[90%]">
+          <p>
             This project's primary objective was to leverage the power of{" "}
             <b className="italic">JavaScript Array Methods</b>. Throughout the test, we tackled
             three key tasks:
           </p>
-          <ul className="list-disc pl-8 flex flex-col gap-3">
+          <ul className="list-disc pl-8 flex flex-col gap-3 ">
             <li>
               <b>Eliminating Duplicate Contacts:</b> Removed redundant users entries to ensure a
               unique list.
@@ -152,9 +152,8 @@ export default function App() {
         </div>
         <UserFilter />
       </div>
-      <hr className="w-80 mx-auto my-5"></hr>
-      <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify">
-        <h3 className="font-bold text-[24px]">Technical Implementations</h3>
+      <article className="border-box p-10 font-[inter] flex flex-col gap-5 text-justify ms:w-[80%] ms:mx-auto ms:gap-7 ls:gap-10 ls:w-[70%] ls:mx-auto ">
+        <h3 className="font-bold text-[30px]">Technical Implementations</h3>
         <p>
           Explore the technical implementations within this section. Delve into the code to uncover
           innovative solutions applied to address intricate challenges and ensure seamless
@@ -231,7 +230,7 @@ export default function App() {
           And that wraps up this technical test! I trust this provides insight into my thought
           process and my technical capabilities. 😁✌️
         </p>
-        <i className="ml-auto text-right">
+        <i className="ml-auto text-right my-10">
           September 1, 2023
           <br />
           Gustavo Quiroz
