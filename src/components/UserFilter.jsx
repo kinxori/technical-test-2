@@ -46,7 +46,7 @@ export default function UserFilterComponent() {
                 <i>Amount</i>
               </th>
               <th className="min-w-[150px]">
-                <i>Date</i>
+                <i>Last Call</i>
                 <h5 className="text-white/50 text-[10px] font-normal ">(mm/dd/yyyy)</h5>
               </th>
               <th className="min-w-[150px]  ">
@@ -80,19 +80,19 @@ export default function UserFilterComponent() {
                 <tr className="h-fit">
                   <td colSpan={5}>
                     <div className="w-full">
-                      <h3 className="font-bold text-left p-5">History</h3>
+                      <h3 className="font-bold text-left p-5">Call History</h3>
                       <div className="border-box p-5 font-bold  w-[100%] "></div>
                       <table className="w-full  ">
                         <thead>
-                          <tr>
-                            <th>Date</th>
-                            <th>ID</th>
+                          <tr className="h-[50px]">
+                            <th className="min-w-[150px]">ID</th>
+                            <th className="min-w-[250px]">Date</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Hola</td>
-                            <td>unos cuantos</td>
+                          <tr className="h-[40px] border-purple-600 border-t-[1px]">
+                            <td>19831</td>
+                            <td>september 1, 2023</td>
                           </tr>
                         </tbody>
                       </table>
