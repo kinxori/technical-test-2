@@ -129,13 +129,24 @@ export default function App() {
             Welcome, this is my second #technicalTest I've had to complete for a Frontend JR role!
           </p>
           <p className="ls:w-[90%]">
-            The main purpose of this project was to test <b className="italic">Array Methods</b>.
-            For this test, there was 3 main points to complete:
+            This project's primary objective was to leverage the power of{" "}
+            <b className="italic">JavaScript Array Methods</b>. Throughout the test, we tackled
+            three key tasks:
           </p>
           <ul className="list-disc pl-8">
-            <li>Remove repeated contacts</li>
-            <li>Count the number of calls for each contact</li>
-            <li>Sorting contacts by latest call history and higher calls</li>
+            <li>
+              <b>Eliminating Duplicate Contacts:</b> Meticulously removed redundant contact entries
+              to ensure a streamlined and unique list.
+            </li>
+            <li>
+              <b>Counting Call Frequency:</b> Our code meticulously tallied the number of calls for
+              each contact, providing valuable insights into communication patterns.
+            </li>
+            <li>
+              <b>Sorting by Call History:</b> We sorted users based on their latest call history and
+              the frequency of calls, enabling efficient analysis and easy identification of the
+              most active contacts.
+            </li>
           </ul>
         </div>
         <UserFilter />
