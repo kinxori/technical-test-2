@@ -13,14 +13,34 @@ export default function UserFilterComponent() {
         acc.push({
           ...contact,
           numberOfCalls: 1,
-          lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
-          calls: [contact],
+          lastCalled: new Date(contact.called * 1000).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          }),
+          calls: [
+            new Date(contact.called * 1000).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }),
+          ],
           id: id,
         });
       } else {
         existingContact.numberOfCalls++;
-        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
-        existingContact.calls.push(contact);
+        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric",
+        });
+        existingContact.calls.push(
+          new Date(contact.called * 1000).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        );
         existingContact.id = existingContact.phoneNumber.slice(-10);
       }
       return acc;
@@ -38,7 +58,7 @@ export default function UserFilterComponent() {
     }));
   };
   // console.log(expandRow);
-  console.log(filteredData);
+  console.log("console log: ", filteredData[0].calls);
 
   return (
     <article className="rounded-md w-full flex flex-col justify-start border-white overflow-hidden bg-white  ">
@@ -82,13 +102,7 @@ export default function UserFilterComponent() {
                   {item.firstName} <span>{item.lastName}</span>
                 </td>
                 <td>{item.numberOfCalls}</td>
-                <td>
-                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                  })}
-                </td>
+                <td>{item.lastCalled}</td>
                 <td>{item.phoneNumber}</td>
               </tr>
               <tr>
@@ -108,14 +122,8 @@ export default function UserFilterComponent() {
                       {item.calls?.map((call, index) => (
                         <tbody key={index}>
                           <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>{Math.round((item.id * call.called + index) / 1000000)}</td>
-                            <td>
-                              {new Date(call.called * 1000).toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                              })}
-                            </td>
+                            <td>{Math.round(item.id + ((index * 100) % 1000))}</td>
+                            <td>{call}</td>
                           </tr>
                         </tbody>
                       ))}
