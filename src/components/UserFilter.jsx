@@ -3,6 +3,7 @@ import { data } from "../../callHistory";
 
 export default function UserFilterComponent() {
   const [filteredData, setFilteredData] = useState([{}]);
+  const [expandRow, setExpandRow] = useState({});
 
   useEffect(() => {
     // Reducing repeated contacts
@@ -28,6 +29,13 @@ export default function UserFilterComponent() {
     setFilteredData(sortedContacts);
   }, []);
 
+  const handleExpandRow = (item) => {
+    setExpandRow((prevState) => ({
+      ...prevState,
+      [item.phoneNumber + item.called]: !prevState[item.phoneNumber + item.called],
+    }));
+  };
+  console.log(expandRow);
   // console.log(filteredData);
 
   return (
@@ -62,10 +70,19 @@ export default function UserFilterComponent() {
               >
                 <tr className="border-purple-600 border-t-[1px] h-[50px]">
                   <td>
-                    <i className="fa-solid fa-chevron-down"></i>
+                    <button
+                      className="bg-transparent hover:border-none "
+                      onClick={() => handleExpandRow(item)}
+                    >
+                      <i
+                        className={`fa-solid fa-chevron-down transition-all ${
+                          expandRow[item.phoneNumber + item.called] ? "rotate-180" : "rotate-0"
+                        } `}
+                      ></i>
+                    </button>
                   </td>
                   <td>
-                    {item.firstName} <span className="font-bold">{item.lastName}</span>
+                    {item.firstName} <span>{item.lastName}</span>
                   </td>
                   <td>{item.numberOfCalls}</td>
                   <td>
@@ -77,26 +94,27 @@ export default function UserFilterComponent() {
                   </td>
                   <td>{item.phoneNumber}</td>
                 </tr>
-                <tr className="h-fit">
+                <tr className="h-[0px]">
                   <td colSpan={5}>
-                    <div className="w-full">
-                      <h3 className="font-bold text-left p-5">Call History</h3>
-                      <div className="border-box p-5 font-bold  w-[100%] "></div>
-                      <table className="w-full  ">
-                        <thead>
-                          <tr className="h-[50px]">
-                            <th className="min-w-[150px]">ID</th>
-                            <th className="min-w-[250px]">Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>19831</td>
-                            <td>september 1, 2023</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    {expandRow[item.phoneNumber + item.called] && (
+                      <div>
+                        <h3 className="font-bold text-left p-5">Call History</h3>
+                        <table className="w-full  ">
+                          <thead>
+                            <tr className="h-[50px]">
+                              <th className="min-w-[150px]">ID</th>
+                              <th className="min-w-[250px]">Date</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="h-[40px] border-purple-600 border-t-[1px]">
+                              <td>19831</td>
+                              <td>september 1, 2023</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
                   </td>
                 </tr>
               </tbody>
