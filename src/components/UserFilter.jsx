@@ -90,30 +90,29 @@ export default function UserFilterComponent() {
                 <td>{item.phoneNumber}</td>
               </tr>
               <tr>
-                <td
-                  colSpan={5}
-                  className={` transition-all duration-[.3s] ease-in-out
-                  ${expandRow[item.phoneNumber] ? "h-[100px]" : "h-[0px]"}`}
-                >
-                  {expandRow[item.phoneNumber] && (
-                    <div>
-                      <h3 className="font-bold text-left p-5">Call History</h3>
-                      <table className="w-full ">
-                        <thead>
-                          <tr className="h-[50px]">
-                            <th className="min-w-[150px]">ID</th>
-                            <th className="min-w-[250px]">Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>19831</td>
-                            <td>september 1, 2023</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
+                <td colSpan={5}>
+                  {/* {expandRow[item.phoneNumber] && ( */}
+                  <div
+                    className={`transition-all duration-[.4s] ease-in overflow-hidden
+                    ${expandRow[item.phoneNumber] ? "max-h-[300px]" : "max-h-0"}`}
+                  >
+                    <h3 className="font-bold text-left p-5">Call History</h3>
+                    <table className="w-full ">
+                      <thead>
+                        <tr className="h-[50px]">
+                          <th className="min-w-[150px]">ID</th>
+                          <th className="min-w-[250px]">Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="h-[40px] border-purple-600 border-t-[1px]">
+                          <td>19831</td>
+                          <td>september 1, 2023</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  {/* )} */}
                 </td>
               </tr>
             </tbody>
