@@ -32,10 +32,10 @@ export default function UserFilterComponent() {
   const handleExpandRow = (item) => {
     setExpandRow((prevState) => ({
       ...prevState,
-      [item.phoneNumber + item.called]: !prevState[item.phoneNumber + item.called],
+      [item.phoneNumber]: !prevState[item.phoneNumber],
     }));
   };
-  console.log(expandRow);
+  // console.log(expandRow);
   // console.log(filteredData);
 
   return (
@@ -63,62 +63,60 @@ export default function UserFilterComponent() {
             </tr>
           </thead>
           {filteredData.map((item) => (
-            <>
-              <tbody
-                key={item.phoneNumber + item.called}
-                className="even:bg-purple-100 text-center w-[100%] "
-              >
-                <tr className="border-purple-600 border-t-[1px] h-[50px]">
-                  <td>
-                    <button
-                      className="bg-transparent hover:border-none "
-                      onClick={() => handleExpandRow(item)}
-                    >
-                      <i
-                        className={`fa-solid fa-chevron-down transition-all ${
-                          expandRow[item.phoneNumber + item.called] ? "rotate-180" : "rotate-0"
-                        } `}
-                      ></i>
-                    </button>
-                  </td>
-                  <td>
-                    {item.firstName} <span>{item.lastName}</span>
-                  </td>
-                  <td>{item.numberOfCalls}</td>
-                  <td>
-                    {new Date(item.called * 1000).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "numeric",
-                      day: "numeric",
-                    })}
-                  </td>
-                  <td>{item.phoneNumber}</td>
-                </tr>
-                <tr className="h-[0px]">
-                  <td colSpan={5}>
-                    {expandRow[item.phoneNumber + item.called] && (
-                      <div>
-                        <h3 className="font-bold text-left p-5">Call History</h3>
-                        <table className="w-full  ">
-                          <thead>
-                            <tr className="h-[50px]">
-                              <th className="min-w-[150px]">ID</th>
-                              <th className="min-w-[250px]">Date</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                              <td>19831</td>
-                              <td>september 1, 2023</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    )}
-                  </td>
-                </tr>
-              </tbody>
-            </>
+            <tbody key={item.phoneNumber} className="even:bg-purple-100 text-center w-[100%] ">
+              <tr className="border-purple-600 border-t-[1px] h-[50px]">
+                <td>
+                  <button
+                    className="bg-transparent hover:border-none "
+                    onClick={() => handleExpandRow(item)}
+                  >
+                    <i
+                      className={`fa-solid fa-chevron-down transition-all 
+                      ${expandRow[item.phoneNumber] ? "rotate-180" : "rotate-0"} `}
+                    ></i>
+                  </button>
+                </td>
+                <td>
+                  {item.firstName} <span>{item.lastName}</span>
+                </td>
+                <td>{item.numberOfCalls}</td>
+                <td>
+                  {new Date(item.called * 1000).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+                </td>
+                <td>{item.phoneNumber}</td>
+              </tr>
+              <tr>
+                <td
+                  colSpan={5}
+                  className={` transition-all duration-[.3s] ease-in-out
+                  ${expandRow[item.phoneNumber] ? "h-[100px]" : "h-[0px]"}`}
+                >
+                  {expandRow[item.phoneNumber] && (
+                    <div>
+                      <h3 className="font-bold text-left p-5">Call History</h3>
+                      <table className="w-full ">
+                        <thead>
+                          <tr className="h-[50px]">
+                            <th className="min-w-[150px]">ID</th>
+                            <th className="min-w-[250px]">Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="h-[40px] border-purple-600 border-t-[1px]">
+                            <td>19831</td>
+                            <td>september 1, 2023</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </td>
+              </tr>
+            </tbody>
           ))}
         </table>
       </div>
