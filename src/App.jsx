@@ -226,6 +226,22 @@ export default function App() {
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {jsxCode}
         </SyntaxHighlighter>
+        <h4 className="font-bold text-[16px]">6. Bonus:</h4>
+        <p>
+          The bonus for this challenge was to ad another expandable row for each user displaying the
+          actual calls registered.
+        </p>
+        <p>
+          To accomplish this step, 1 new column was added at the <b>{`<thead>`}</b>, as well as an
+          extra <b>{`<tr>`}</b> was added at the <b>{`<tbody>`}</b>. Adding this extra columns and
+          rows, we could add the button to display click and display the call history of each user.
+        </p>
+        <p>
+          Following this, adding extra logic was neccesary in order to have an <b>Array</b> of calls
+          inside our existing <b>Object</b>. Additional to this, creating an <b>ID</b> key-value as
+          well. All these extra steps provide a better component with all the information we can
+          display from our original data.
+        </p>
         <p>
           And that wraps up this technical test! I trust this provides insight into my thought
           process and my technical capabilities. 😁✌️
