@@ -9,7 +9,8 @@ export default function UserFilterComponent() {
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
       if (!existingContact) {
-        const id = contact.phoneNumber.slice(-10); // Extract the last 10 digits as the ID
+        const id = contact.phoneNumber * Math.floor(Math.random() * 9);
+
         acc.push({
           ...contact,
           numberOfCalls: 1,
@@ -41,7 +42,7 @@ export default function UserFilterComponent() {
             day: "numeric",
           })
         );
-        existingContact.id = existingContact.phoneNumber.slice(-10);
+        existingContact.id;
       }
       return acc;
     }, []);
@@ -58,7 +59,7 @@ export default function UserFilterComponent() {
     }));
   };
   // console.log(expandRow);
-  console.log("console log: ", filteredData[0].calls);
+  // console.log("console log: ", filteredData[0].id);
 
   return (
     <article className="rounded-md w-full flex flex-col justify-start border-white overflow-hidden bg-white  ">
@@ -122,7 +123,7 @@ export default function UserFilterComponent() {
                       {item.calls?.map((call, index) => (
                         <tbody key={index}>
                           <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>{Math.round(item.id * 999 + index)}</td>
+                            <td>{item.id + index}</td>
                             <td>{call}</td>
                           </tr>
                         </tbody>
