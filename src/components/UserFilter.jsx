@@ -97,7 +97,7 @@ export default function UserFilterComponent() {
                     className={`transition-all duration-[.4s] ease-in overflow-hidden
                     ${expandRow[item.phoneNumber] ? "max-h-[300px]" : "max-h-0"}`}
                   >
-                    <h3 className="font-bold text-left p-5">Call History</h3>
+                    <h3 className="font-bold text-left p-5 text-[20px] ">Call History</h3>
                     <table className="w-full ">
                       <thead>
                         <tr className="h-[50px]">
@@ -108,7 +108,7 @@ export default function UserFilterComponent() {
                       {item.calls?.map((call, index) => (
                         <tbody key={index}>
                           <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>{item.id + call.called}</td>
+                            <td>{Math.round((item.id * call.called + index) / 1000000)}</td>
                             <td>
                               {new Date(call.called * 1000).toLocaleDateString("en-US", {
                                 year: "numeric",
