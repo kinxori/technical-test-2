@@ -6,26 +6,28 @@ export default function UserFilterComponent() {
   const [expandRow, setExpandRow] = useState({});
 
   useEffect(() => {
-    // Reducing repeated contacts
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
       if (!existingContact) {
+        const id = contact.phoneNumber.slice(-10); // Extract the last 10 digits as the ID
         acc.push({
           ...contact,
           numberOfCalls: 1,
           lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
+          calls: [contact],
+          id: id,
         });
       } else {
         existingContact.numberOfCalls++;
         existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
+        existingContact.calls.push(contact);
+        existingContact.id = existingContact.phoneNumber.slice(-10);
       }
       return acc;
     }, []);
 
-    // Sorting contacts by number of calls
     const sortedContacts = uniqueContacts.sort((a, b) => b.numberOfCalls - a.numberOfCalls);
 
-    // Updating the filteredData state with the sortedContacts
     setFilteredData(sortedContacts);
   }, []);
 
@@ -36,7 +38,7 @@ export default function UserFilterComponent() {
     }));
   };
   // console.log(expandRow);
-  // console.log(filteredData);
+  console.log(filteredData);
 
   return (
     <article className="rounded-md w-full flex flex-col justify-start border-white overflow-hidden bg-white  ">
@@ -62,8 +64,8 @@ export default function UserFilterComponent() {
               </th>
             </tr>
           </thead>
-          {filteredData.map((item) => (
-            <tbody key={item.phoneNumber} className="even:bg-purple-100 text-center w-[100%] ">
+          {filteredData.map((item, index) => (
+            <tbody key={index} className="even:bg-purple-100 text-center w-[100%] ">
               <tr className="border-purple-600 border-t-[1px] h-[50px]">
                 <td>
                   <button
@@ -91,7 +93,6 @@ export default function UserFilterComponent() {
               </tr>
               <tr>
                 <td colSpan={5}>
-                  {/* {expandRow[item.phoneNumber] && ( */}
                   <div
                     className={`transition-all duration-[.4s] ease-in overflow-hidden
                     ${expandRow[item.phoneNumber] ? "max-h-[300px]" : "max-h-0"}`}
@@ -104,15 +105,22 @@ export default function UserFilterComponent() {
                           <th className="min-w-[250px]">Date</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                          <td>19831</td>
-                          <td>september 1, 2023</td>
-                        </tr>
-                      </tbody>
+                      {item.calls?.map((call, index) => (
+                        <tbody key={index}>
+                          <tr className="h-[40px] border-purple-600 border-t-[1px]">
+                            <td>{item.id + call.called}</td>
+                            <td>
+                              {new Date(call.called * 1000).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
                     </table>
                   </div>
-                  {/* )} */}
                 </td>
               </tr>
             </tbody>
