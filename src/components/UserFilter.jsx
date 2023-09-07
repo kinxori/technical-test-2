@@ -122,7 +122,7 @@ export default function UserFilterComponent() {
                       {item.calls?.map((call, index) => (
                         <tbody key={index}>
                           <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>{Math.round(item.id + ((index * 100) % 1000))}</td>
+                            <td>{Math.round(item.id * 999 + index)}</td>
                             <td>{call}</td>
                           </tr>
                         </tbody>
