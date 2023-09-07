@@ -78,11 +78,21 @@ export default function App() {
         acc.push({
           ...contact,
           numberOfCalls: 1,
-          lastCalled: new Date(contact.called * 1000).toLocaleDateString(),
+          lastCalled: new Date(contact.called * 1000).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          }),
         });
       } else {
         existingContact.numberOfCalls++;
-        existingContact.lastCalled = new Date(contact.called * 1000).toLocaleDateString();
+        existingContact.calls.push(
+          new Date(contact.called * 1000).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        );
       }
       return acc;
     }, []);
