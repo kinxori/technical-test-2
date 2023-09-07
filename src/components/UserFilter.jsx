@@ -9,7 +9,7 @@ export default function UserFilterComponent() {
     const uniqueContacts = data.reduce((acc, contact) => {
       const existingContact = acc.find((c) => c.phoneNumber === contact.phoneNumber);
       if (!existingContact) {
-        const id = contact.phoneNumber * Math.floor(Math.random() * 9);
+        const id = contact.phoneNumber.slice(-10);
 
         acc.push({
           ...contact,
@@ -123,7 +123,7 @@ export default function UserFilterComponent() {
                       {item.calls?.map((call, index) => (
                         <tbody key={index}>
                           <tr className="h-[40px] border-purple-600 border-t-[1px]">
-                            <td>{item.id + index}</td>
+                            <td>{item.id.slice(-5) + index}</td>
                             <td>{call}</td>
                           </tr>
                         </tbody>
