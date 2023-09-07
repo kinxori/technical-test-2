@@ -2,6 +2,7 @@ import UserFilter from "./components/UserFilter";
 import bgImg from "./assets/kinxori-background-for-assets-template.png";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import ScrollTopButton from "./components/ScrollTopButton";
 
 export default function App() {
   const dataCode = `
@@ -324,6 +325,7 @@ export default function App() {
           Gustavo Quiroz
         </i>
       </article>
+      <ScrollTopButton />
     </section>
   );
 }
