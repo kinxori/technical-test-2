@@ -105,11 +105,7 @@ export default function App() {
             {item.numberOfCalls}
           </td>
           <td>
-            {new Date(item.called * 1000).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "numeric",
-              day: "numeric",
-            })}
+            {item.called}
           </td>
           <td>
             {item.phoneNumber}
@@ -118,6 +114,35 @@ export default function App() {
       </tbody>
     ))}
   </table>;
+  `;
+
+  const bonusLogicCode = `
+  // ...rest of the code
+
+  if (!existingContact) {
+
+    const id = contact.phoneNumber.slice(-10);   // code added
+
+    acc.push({
+      calls: [                                  // code added
+        new Date(contact.called * 1000).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
+      ],
+      id: id,
+    });
+  } else {
+    existingContact.calls.push(                 // code added
+      new Date(contact.called * 1000).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+    existingContact.id;                           // code added
+  }
   `;
 
   const bonusJSXCode = `
@@ -270,15 +295,15 @@ export default function App() {
           display from our original data.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {bonusLogicCode}
+        </SyntaxHighlighter>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {bonusJSXCode}
         </SyntaxHighlighter>
         <p>
           And that wraps up this technical test! I trust this provides insight into my thought
           process and my technical capabilities. 😁✌️
         </p>
-        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
-          {bonusJSXCode}
-        </SyntaxHighlighter>
         <i className="ml-auto text-right my-10">
           September 1, 2023
           <br />
