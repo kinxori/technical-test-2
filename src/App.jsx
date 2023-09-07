@@ -294,21 +294,25 @@ export default function App() {
           actual calls registered.
         </p>
         <p>
-          To accomplish this step, 1 new column was added at the <b>{`<thead>`}</b>, as well as an
-          extra <b>{`<tr>`}</b> was added at the <b>{`<tbody>`}</b>. Adding this extra columns and
-          rows, we could add the button to display click and display the call history of each user.
+          To achieve this, we introduced an additional column in the{" "}
+          <b className="italic">{`"<thead>"`}</b> section and an extra{" "}
+          <b className="italic">{`"<tr>"`}</b> in the <b className="italic">{`"<tbody>"`}</b>{" "}
+          section. This strategic modification enabled us to incorporate a button for user
+          interaction, facilitating the display of individual call histories with just a click.
         </p>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {bonusJSXCode}
+        </SyntaxHighlighter>
         <p>
-          Following this, adding extra logic was neccesary in order to have an <b>Array</b> of calls
-          inside our existing <b>Object</b>. Additional to this, creating an <b>ID</b> key-value as
-          well. All these extra steps provide a better component with all the information we can
-          display from our original data.
+          To enhance our component, we introduced additional logic that involved creating an{" "}
+          <b className="italic">"Array"</b> to store call details within our existing{" "}
+          <b className="italic">"Objects"</b>. Furthermore, we implemented a unique{" "}
+          <b className="italic">"ID"</b> key-value pair for each entry. These enhancements
+          significantly enrich our component's functionality, allowing us to display comprehensive
+          information derived from our original dataset.
         </p>
         <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
           {bonusLogicCode}
-        </SyntaxHighlighter>
-        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
-          {bonusJSXCode}
         </SyntaxHighlighter>
         <p>
           And that wraps up this technical test! I trust this provides insight into my thought
