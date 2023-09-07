@@ -120,6 +120,33 @@ export default function App() {
   </table>;
   `;
 
+  const bonusJSXCode = `
+{
+  filteredData.map((item, index) => (
+    <tbody key={index}>
+    {/* Rest of the HTML */}
+      <tr>
+        <td colSpan={5}>
+          <table>
+            <thead>
+              {/* Rest of the HTML */}
+            </thead>
+            {item.calls?.map((call, index) => (
+              <tbody key={index}>
+                <tr>
+                  <td>{item.id.slice(-5) + index}</td>
+                  <td>{call}</td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  ));
+}
+`;
+
   return (
     <section className="relative ">
       <img src={bgImg} className="fixed z-[-1000] w-screen h-screen object-cover " />
@@ -242,10 +269,16 @@ export default function App() {
           well. All these extra steps provide a better component with all the information we can
           display from our original data.
         </p>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {bonusJSXCode}
+        </SyntaxHighlighter>
         <p>
           And that wraps up this technical test! I trust this provides insight into my thought
           process and my technical capabilities. 😁✌️
         </p>
+        <SyntaxHighlighter showLineNumbers style={dracula} language="javascript">
+          {bonusJSXCode}
+        </SyntaxHighlighter>
         <i className="ml-auto text-right my-10">
           September 1, 2023
           <br />
